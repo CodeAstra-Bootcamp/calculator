@@ -1,0 +1,49 @@
+#calculator {
+  width: 70vh;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300; }
+  #calculator #result {
+    height: 20vh;
+    font-weight: 400;
+    text-align: right;
+    font-size: 10vh;
+    line-height: 20vh;
+    background-color: whitesmoke; }
+  #calculator #preview {
+    height: 10vh;
+    font-weight: 400;
+    text-align: right;
+    font-size: 5vh;
+    line-height: 10vh;
+    background-color: #dbdbdb; }
+  #calculator #keys {
+    color: #FFF;
+    text-align: center;
+    cursor: pointer; }
+    #calculator #keys .key::selection {
+      background: transparent;
+      /* WebKit/Blink Browsers */ }
+    #calculator #keys .key::-moz-selection {
+      background: transparent;
+      /* Gecko Browsers */ }
+    #calculator #keys #numbers {
+      background-color: #424242;
+      padding: 0; }
+      #calculator #keys #numbers .key {
+        height: 17.5vh;
+        font-size: 5vh;
+        line-height: 17.5vh; }
+        #calculator #keys #numbers .key:hover {
+          background-color: #353535; }
+    #calculator #keys #operators {
+      background-color: #636363;
+      padding: 0; }
+      #calculator #keys #operators .key {
+        height: 14vh;
+        font-size: 4vh;
+        line-height: 14vh; }
+        #calculator #keys #operators .key:hover {
+          background-color: #565656; }
+
+/*# sourceMappingURL=calci.css.map */
