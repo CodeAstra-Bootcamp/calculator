@@ -28,6 +28,11 @@ var Calculator = {
       Calculator.handleInput(key);
     }
   },
+  evaluateResult: function() {
+    var result = eval(Calculator.previewContent().replace('X', '*'));
+    $('#preview').html(result);
+    $('#result').html(result);
+  },
   handleGenericInput: function(key) {
     if(key == "0") {
       Calculator.handleZero();
@@ -35,7 +40,10 @@ var Calculator = {
       Calculator.deleteLastChar();
     } else if (Calculator.keyIsOperator(key)) {
       Calculator.handleOperator(key);
-    } else {
+    } else if (key == "=") {
+      Calculator.evaluateResult();
+    }
+    else {
       Calculator.handleInput(key);
     }
   },

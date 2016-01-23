@@ -9,14 +9,16 @@
     text-align: right;
     font-size: 10vh;
     line-height: 20vh;
-    background-color: whitesmoke; }
+    background-color: whitesmoke;
+    overflow: hidden; }
   #calculator #preview {
     height: 10vh;
     font-weight: 400;
     text-align: right;
     font-size: 5vh;
     line-height: 10vh;
-    background-color: #dbdbdb; }
+    background-color: #dbdbdb;
+    overflow: hidden; }
   #calculator #keys {
     color: #FFF;
     text-align: center;

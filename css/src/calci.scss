@@ -14,6 +14,7 @@ $light-bg-color: #636363;
     font-size: 10vh;
     line-height: 20vh;
     background-color: lighten($dark-bg-color, 70%);
+    overflow: hidden;
   }
 
   #preview {
@@ -23,6 +24,7 @@ $light-bg-color: #636363;
     font-size: 5vh;
     line-height: 10vh;
     background-color: lighten($dark-bg-color, 60%);
+    overflow: hidden;
   }
 
   #keys {
