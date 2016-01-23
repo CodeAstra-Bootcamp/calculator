@@ -1,41 +1,52 @@
-function handleInput(key) {
-  $('#preview').append(key);
-}
-
-function previewContent() {
-  return $('#preview').html();
-}
-
-function deleteLastChar() {
-  var preview = previewContent();
-  var newPreview = preview.slice(0, -1);
-  $('#preview').html(newPreview);
-}
-
-function keyIsOperator(key) {
-  return (["+", "-", "X", "/"].indexOf(key) != -1);
-}
+var Calculator = {
+  handleInput: function(key) {
+    $('#preview').append(key);
+  },
+  previewContent: function() {
+    return $('#preview').html();
+  },
+  deleteLastChar: function() {
+    var preview = Calculator.previewContent();
+    var newPreview = preview.slice(0, -1);
+    $('#preview').html(newPreview);
+  },
+  keyIsOperator: function(key) {
+    return (["+", "-", "X", "/"].indexOf(key) != -1);
+  },
+  handleZero: function() {
+    if(Calculator.previewContent() != "0") {
+      Calculator.handleInput("0");
+    }
+  },
+  handleOperator: function(key) {
+    // Successive operators
+    var lastChar = Calculator.previewContent().slice(-1);
+    if(Calculator.keyIsOperator(lastChar)) {
+      Calculator.deleteLastChar();
+    }
+    if((Calculator.previewContent() != "") || (key == "-")) {
+      Calculator.handleInput(key);
+    }
+  },
+  handleGenericInput: function(key) {
+    if(key == "0") {
+      Calculator.handleZero();
+    } else if (key == "DEL") {
+      Calculator.deleteLastChar();
+    } else if (Calculator.keyIsOperator(key)) {
+      Calculator.handleOperator(key);
+    } else {
+      Calculator.handleInput(key);
+    }
+  },
+  init: function() {
+    $('.key').click(function() {
+      var key = $(this).html();
+      Calculator.handleGenericInput(key);
+    });
+  }
+};
 
 $(document).ready(function() {
-  $('.key').click(function() {
-    var key = $(this).html();
-    if(key == "0") {
-      if(previewContent() != "0") {
-        handleInput(key);
-      }
-    } else if (key == "DEL") {
-      deleteLastChar();
-    } else if (keyIsOperator(key)) {
-      // Successive operators
-      var lastChar = previewContent().slice(-1);
-      if(keyIsOperator(lastChar)) {
-        deleteLastChar();
-      }
-      if((previewContent() != "") || (key == "-")) {
-        handleInput(key);
-      }
-    } else {
-      handleInput(key);
-    }
-  });
+  Calculator.init();
 });
